@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class Food {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String image;
-    private String price;
+    public String title;
+    public String image;
+    public String price;
 
     public Food(FoodRequestDTO data){
         this.image = data.image();

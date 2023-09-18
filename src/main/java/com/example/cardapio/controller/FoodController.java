@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("food")
+@RequestMapping("carros")
 public class FoodController {
 
     @Autowired
@@ -31,5 +31,29 @@ public class FoodController {
         List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
         return foodList;
     }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PatchMapping("/{id}")
+    public void updateFood(@PathVariable Long id, @RequestBody FoodRequestDTO data) {
+        Food food = repository.findById(id).orElse(null);
 
+        if (food != null) {
+            // Atualizar os campos do alimento com os valores fornecidos no DTO
+            if (data.title() != null) {
+                food.title = data.title();
+            }
+            if (data.image() != null) {
+                food.image = data.image();
+            }
+            if (data.price() != null) {
+                food.price = data.price();
+            }
+
+            repository.save(food);
+        }
+    }
 }
