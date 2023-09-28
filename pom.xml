@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>cardapio</artifactId>
+	<artifactId>estoque</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cardapio</name>
 	<description>cardapio digital</description>
