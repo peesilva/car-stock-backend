@@ -7,6 +7,7 @@ import com.example.estoque.car.CarResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,15 @@ public class CarController {
         Car carData = new Car(data);
         repository.save(carData);
         return;
+    }
+    @PostMapping("/default")
+    public void defaultCar(CarRequestDTO data){
+        List<Car> carsAdd = new ArrayList<>();
+        carsAdd.add(new Car(null, "Porsche 911 GT3", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqWC-5lJ3Q3uUS5zTl0uSlUWIP-QFAU0yfjQ&usqp=CAU", "899.990"));
+        carsAdd.add(new Car(null, "Porsche Cayenne", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJTCr-PB5ZXSG9XhdWO_PPiiVyz_uPMGgyg&usqp=CAU", "499.990"));
+        carsAdd.add(new Car(null, "Audi r8", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNxbhrqys14gvz96qb9u9vrfKL8pCUD3qDKw&usqp=CAU", "799.990"));
+        carsAdd.add(new Car(null, "Ferrari 418", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSInM25TfD61216DNVFLIIEywqGgIjm-aog&usqp=CAU", "2.449.990"));
+        repository.saveAll(carsAdd);
     }
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
