@@ -24,7 +24,7 @@ public class CarController {
         repository.save(carData);
         return;
     }
-    @PostMapping("/default")
+    @PostMapping("/ZGVmYXVsdA==")
     public void defaultCar(CarRequestDTO data){
         List<Car> carsAdd = new ArrayList<>();
         carsAdd.add(new Car(null, "Porsche 911 GT3", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqWC-5lJ3Q3uUS5zTl0uSlUWIP-QFAU0yfjQ&usqp=CAU", "899.990"));
