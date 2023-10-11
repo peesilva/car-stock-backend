@@ -13,7 +13,7 @@ public class EstoqueApplication {
 		SpringApplication.run(EstoqueApplication.class, args);
 
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForObject("http://localhost:8080/carros/default", null, Void.class);
+		restTemplate.postForObject("http://localhost:8080/carros/ZGVmYXVsdA==", null, Void.class);
 	}
 
 	@Bean
@@ -21,3 +21,4 @@ public class EstoqueApplication {
 		return builder.build();
 	}
 }
+
